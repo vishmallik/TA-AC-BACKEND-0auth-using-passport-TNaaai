@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="1010874351547-00hl8tbhh6numo9caq8olr22hq03ds05.apps.googleusercontent.com">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>User Login</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Login</h1>
+            <a href="/"><button class="button-64 button-65">Back to home</button></a>
+            <a href="/users/register"><button class="button-64 button-65 button-67">Register</button></a>
+
+        </nav>
+
+    </header>
+    <main class="container">
+        <%if(success){%>
+        <p class="success">
+            <%=success%>
+        </p>
+        <% }%>
+        <%if(error){%>
+        <p class="error">
+            <%=error%>
+        </p>
+
+        <%}%>
+        <form action="/users/login" method="POST" class="form-control auth">
+        <input type="email" name="email" id="" placeholder="Email">
+        <input type="password" name="password" id="" placeholder="Password">
+        <input type="submit" value="Login">
+        </form>
+        <div class="oauth-btn">
+             <a class="google-btn" href="/auth/google">
+            <div class="google-icon-wrapper">
+              <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+            </div>
+            <p class="btn-text"><b>Sign in with Google</b></p>
+          </a>
+          <a class="github-btn" href="/auth/github">
+            <div class="google-icon-wrapper">
+              <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/600px-Octicons-mark-github.svg.png?20180806170715"/>
+            </div>
+            <p class="btn-text"><b>Sign in with Github</b></p>
+          </a>
+        </div>
+       
+    </main>
+    <footer>
+    
+    </footer>
+</body>
+
+</html>
