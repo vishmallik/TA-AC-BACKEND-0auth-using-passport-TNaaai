@@ -13,10 +13,11 @@ passport.use(
       let profileData = {
         name: profile.displayName,
         username: profile.username,
+        email: profile._json.email,
         photo: profile._json.avatar_url,
       };
 
-      User.findOne({ username: profile.username }, (err, user) => {
+      User.findOne({ email: profile._json.email }, (err, user) => {
         if (err) return done(err);
         if (!user) {
           User.create(profileData, (err, newUser) => {
@@ -35,7 +36,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id, "name username", (err, user) => {
+  User.findById(id, "name username email photo", (err, user) => {
     return done(err, user);
   });
 });
