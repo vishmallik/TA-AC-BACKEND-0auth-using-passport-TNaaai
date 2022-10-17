@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <p>
+    <%if(error){%>
+    <%=error%>
+    <%}%>
+    <%if(success){%>
+    <%=success%>
+    <%}%>
+  </p>
+
+  <h1><%= title %></h1>
+  <p>Welcome to <%= title %></p>
+  <a href="/auth/github">Login using Github</a>
+  <a href="/auth/google">Login using Google</a>
+  <p>Or Login Using Email/password</p>
+  <form action="/users/login" method="post">
+    <input type="email" name="email" id="">
+    <input type="password" name="password" id="">
+    <input type="submit" value="Login">
+  </form>
+
+  <a href="/users/logout">Logout</a>
+
+
+  <section>
+    <form action="/users/register" method="post">
+      <label for="">
+        Create Account
+      </label>
+      <input type="email" name="email" id="" placeholder="Email">
+      <input type="password" name="password" id="" placeholder="Password">
+      <input type="submit" value="Create Account">
+
+    </form>
+  </section>
+</body>
+
+</html>
